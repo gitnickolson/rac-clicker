@@ -1,0 +1,7 @@
+AllCops:
+  TargetRubyVersion: 3.3.2
+  NewCops: enable
+Metrics/ClassLength:
+  Enabled: false
+Style/Documentation:
+  Enabled: false
