@@ -5,6 +5,10 @@
 ### Environment ###
 .env
 
+### Gems ###
+
+Gemfile.lock
+
 ### Eclipse ###
 .metadata
 bin/
