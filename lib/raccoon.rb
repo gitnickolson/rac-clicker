@@ -11,8 +11,6 @@ class Raccoon
     @image_height = image_size[1]
     @x_coordinate = centered_x_for_image(x_coordinate)
     @y_coordinate = centered_y_for_image(y_coordinate)
-    pp centered_x_for_image(x_coordinate)
-    pp centered_y_for_image(y_coordinate)
     spawn
   end
 
