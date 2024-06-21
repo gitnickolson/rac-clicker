@@ -1,15 +1,15 @@
 # frozen_string_literal: true
 
 $LOAD_PATH.unshift('./lib/')
-require 'config/config'
-require 'main'
+require 'ruby2d'
+require 'game'
 
-create_window(
-  width: 1900,
+Window.set(
+  width: 1000,
   height: 1000,
   title: 'Rac clicker',
   background: '#8000ff'
 )
 
-Main.new.start
-show_window
+Game.new.run
+Window.show
