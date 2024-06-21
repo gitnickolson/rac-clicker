@@ -2,14 +2,14 @@
 
 $LOAD_PATH.unshift('./lib/')
 require 'ruby2d'
-require 'main'
+require 'game'
 
 Window.set(
-  width: 1900,
+  width: 1000,
   height: 1000,
   title: 'Rac clicker',
   background: '#8000ff'
 )
 
-Main.new.start
+Game.new.run
 Window.show
