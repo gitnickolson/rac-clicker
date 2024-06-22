@@ -17,6 +17,14 @@ module Entities
 
     attr_reader :x_coordinate, :y_coordinate, :image_width, :image_height
 
+    def margin_x
+      image_width * 0.175
+    end
+
+    def margin_y
+      image_height * 0.175
+    end
+
     private
 
     def spawn
