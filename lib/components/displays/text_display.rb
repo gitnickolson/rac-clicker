@@ -8,7 +8,7 @@ module Components
       end
 
       def display_click_text(x_coordinate, y_coordinate)
-        @text ||= Text.new(
+        @display_click_text ||= Text.new(
           click.count,
           x: x_coordinate,
           y: y_coordinate,

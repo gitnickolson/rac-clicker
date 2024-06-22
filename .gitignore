@@ -8,6 +8,7 @@
 ### Gems ###
 
 Gemfile.lock
+coverage/
 
 ### Eclipse ###
 .metadata

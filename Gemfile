@@ -10,4 +10,5 @@ gem 'ruby2d'
 group 'testing' do
   gem 'rspec'
   gem 'rubocop-rspec'
+  gem 'simplecov'
 end
