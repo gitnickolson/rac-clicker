@@ -28,7 +28,7 @@ jobs:
           sudo apt-get install -y fonts-dejavu-core
 
       - name: Set up Ruby
-        uses: ruby/setup-ruby@v1.146.0
+        uses: ruby/setup-ruby@v1.153.0
         with:
           ruby-version: ${{ matrix.ruby-version }}
           bundler-cache: true
