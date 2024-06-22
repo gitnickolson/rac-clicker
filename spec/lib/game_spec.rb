@@ -15,12 +15,12 @@ RSpec.describe Game do
 
   describe '#run' do
     it 'initializes Click' do
-      Game.new.run
+      described_class.new.run
       expect(Components::Click).to have_received(:new)
     end
 
     it 'initializes TextDisplay' do
-      Game.new.run
+      described_class.new.run
       expect(Components::Displays::TextDisplay).to have_received(:new).with(click)
     end
   end

@@ -43,10 +43,10 @@ RSpec.describe Components::Listeners::MouseListener do
       mouse_listener.add_listener(raccoon)
     end
 
-    it 'does not raise the click count if the raccoon is not clicked' do
+    it 'does not raise the click count if raccoon is clicked with wrong button' do
       mouse_listener.add_listener(raccoon)
 
-      event = double('Event', button: :right, x: 50, y: 50)
+      event = double('Event', button: :right, x: 150, y: 150)
       allow(Window).to receive(:on).with(:mouse_down).and_yield(event)
 
       expect(click).not_to receive(:raise_count)

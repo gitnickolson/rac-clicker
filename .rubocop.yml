@@ -1,7 +1,20 @@
+require:
+  - rubocop-rspec
+
 AllCops:
   TargetRubyVersion: 3.3.2
   NewCops: enable
 Metrics/ClassLength:
   Enabled: false
 Style/Documentation:
+  Enabled: false
+Metrics/BlockLength:
+  Enabled: false
+Naming/MemoizedInstanceVariableName:
+  Enabled: false
+RSpec/VerifiedDoubles:
+  Enabled: false
+RSpec/ExampleLength:
+  Enabled: false
+RSpec/MessageSpies:
   Enabled: false
