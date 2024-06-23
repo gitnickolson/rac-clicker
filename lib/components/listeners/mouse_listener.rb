@@ -14,11 +14,14 @@ module Components
         Window.on :mouse_down do |event|
           case event.button
           when :left
-            click.raise_count if raccoon_clicked?(event.x,
-                                                  event.y,
-                                                  [raccoon.x_coordinate, raccoon.y_coordinate],
-                                                  [raccoon.image_width, raccoon.image_height],
-                                                  [raccoon.margin_x, raccoon.margin_y])
+            if raccoon_clicked?(event.x,
+                                event.y,
+                                [raccoon.x_coordinate, raccoon.y_coordinate],
+                                [raccoon.image_width, raccoon.image_height],
+                                [raccoon.margin_x, raccoon.margin_y])
+              click.raise_count
+              raccoon.new_image
+            end
           end
         end
       end

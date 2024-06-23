@@ -8,7 +8,7 @@ require 'components/listeners/mouse_listener'
 class Game
   def initialize
     @click = Components::Click.new
-    @raccoon = Entities::Raccoon.new(x_coordinate: Window.width, y_coordinate: Window.height)
+    @raccoon = Entities::Raccoon.new(window_width: Window.width, window_height: Window.height)
     @mouse_listener = Components::Listeners::MouseListener.new(click)
     @text_display = Components::Displays::TextDisplay.new(click)
   end
