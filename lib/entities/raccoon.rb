@@ -6,9 +6,7 @@ module Entities
   class Raccoon
     FILEPATH = './resources/raccoons/'
 
-    def initialize(window_width:, window_height:)
-      @window_width = window_width
-      @window_height = window_height
+    def initialize
       new_image
     end
 
@@ -17,8 +15,17 @@ module Entities
     def new_image
       remove_previous_image unless image_object.nil?
       @image = random_raccoon_image
-      set_values_for
+      set_values_for_image
       spawn
+    end
+
+    def rescale_for_removal
+      @image_width -= 100
+      @image_height -= 100
+      image_object.x = centered_x_for_image
+      image_object.y = centered_y_for_image
+      image_object.width = image_width
+      image_object.height = image_height
     end
 
     def margin_x
@@ -31,7 +38,7 @@ module Entities
 
     private
 
-    attr_reader :image, :image_object, :window_height, :window_width
+    attr_reader :image, :image_object
 
     def spawn
       @image_object = Image.new(
@@ -47,7 +54,7 @@ module Entities
       image_object.remove
     end
 
-    def set_values_for
+    def set_values_for_image
       image_size = FastImage.size(image)
       @image_width = image_size[0]
       @image_height = image_size[1]
@@ -56,11 +63,11 @@ module Entities
     end
 
     def centered_x_for_image
-      (window_width / 2) - (image_width / 2)
+      (Window.width / 2) - (image_width / 2)
     end
 
     def centered_y_for_image
-      (window_height / 2) - (image_height / 2)
+      (Window.height / 2) - (image_height / 2)
     end
 
     def random_raccoon_image

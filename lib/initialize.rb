@@ -5,9 +5,9 @@ require 'ruby2d'
 require 'game'
 
 Window.set(
-  width: 1000,
-  height: 1000,
-  title: 'Rac clicker',
+  width: 1100,
+  height: 900,
+  title: 'Click the raccoon!',
   background: '#8000ff'
 )
 
