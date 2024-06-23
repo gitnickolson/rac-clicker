@@ -4,7 +4,7 @@ require 'fastimage'
 
 module Entities
   class Raccoon
-    RACCOON_IMAGE_FILEPATH = 'resources/pope.png'
+    RACCOON_IMAGE_FILEPATH = 'resources/raccoons/pope.png'
 
     def initialize(x_coordinate:, y_coordinate:)
       image_size = FastImage.size(RACCOON_IMAGE_FILEPATH)
