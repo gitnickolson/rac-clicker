@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 
+require 'components/sounds/click_sound'
+
 module Components
   module Listeners
     class MouseListener
@@ -42,6 +44,7 @@ module Components
 
       def raccoon_clicked_event
         click.raise_count
+        Components::Sounds::ClickSound.new.play
         raccoon.rescale_for_removal
         @raccoon_was_clicked = true
       end
