@@ -8,8 +8,8 @@ require 'components/listeners/mouse_listener'
 class Game
   def initialize
     @click = Components::Click.new
-    @raccoon = Entities::Raccoon.new(x_coordinate: Window.width, y_coordinate: Window.height)
-    @mouse_listener = Components::Listeners::MouseListener.new(click)
+    @raccoon = Entities::Raccoon.new
+    @mouse_listener = Components::Listeners::MouseListener.new(click, raccoon)
     @text_display = Components::Displays::TextDisplay.new(click)
   end
 
@@ -25,7 +25,6 @@ class Game
   attr_reader :raccoon
 
   def start_refresh_loop
-    # :nocov:
     tick = 0
 
     Window.update do
@@ -35,14 +34,13 @@ class Game
       end
       tick += 1
     end
-    # :nocov:
   end
 
   def add_mouse_listener
-    mouse_listener.add_listener(raccoon)
+    mouse_listener.add_listener
   end
 
   def add_text_display
-    text_display.display_click_text(raccoon.x_coordinate + 30, raccoon.y_coordinate - 10)
+    text_display.display_click_text(Window.width / 8, Window.height / 10)
   end
 end
