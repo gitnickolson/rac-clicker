@@ -25,7 +25,6 @@ class Game
   attr_reader :raccoon
 
   def start_refresh_loop
-    # :nocov:
     tick = 0
 
     Window.update do
@@ -35,7 +34,6 @@ class Game
       end
       tick += 1
     end
-    # :nocov:
   end
 
   def add_mouse_listener

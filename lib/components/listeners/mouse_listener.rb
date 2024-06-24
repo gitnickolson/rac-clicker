@@ -12,26 +12,29 @@ module Components
       attr_accessor :click, :click_text
 
       def add_listener
+        listen_to_mouse_down
+        listen_to_mouse_up
+      end
+
+      private
+
+      def listen_to_mouse_down
         Window.on :mouse_down do |event|
           case event.button
           when :left
-            if raccoon_clicked?(event.x, event.y)
-              raccoon_clicked_event
-            end
-          end
-        end
-
-        Window.on :mouse_up do |event|
-          case event.button
-          when :left
-            if @raccoon_was_clicked
-              raccoon_unclick_event
-            end
+            raccoon_clicked_event if raccoon_clicked?(event.x, event.y)
           end
         end
       end
 
-      private
+      def listen_to_mouse_up
+        Window.on :mouse_up do |event|
+          case event.button
+          when :left
+            raccoon_unclick_event if @raccoon_was_clicked
+          end
+        end
+      end
 
       def raccoon_clicked?(mouse_x, mouse_y)
         mouse_on_raccoon_x(mouse_x) && mouse_on_raccoon_y(mouse_y)
