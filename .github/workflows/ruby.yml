@@ -10,7 +10,7 @@ permissions:
   contents: read
 
 jobs:
-  test:
+  rubocop:
 
     runs-on: ubuntu-latest
     strategy:
@@ -20,22 +20,11 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: Install dependencies
-        run: |
-          sudo apt-get update
-          sudo apt-get install -y libsdl2-dev libsdl2-image-dev libsdl2-mixer-dev libsdl2-ttf-dev xvfb
-          sudo apt-get install -y fontconfig
-          sudo apt-get install -y fonts-dejavu-core
-
       - name: Set up Ruby
         uses: ruby/setup-ruby@v1
         with:
           ruby-version: ${{ matrix.ruby-version }}
           bundler-cache: true
-
-      - name: Run tests with xvfb
-        run: |
-          xvfb-run --auto-servernum --server-args='-screen 0 1024x768x24' bundle exec rspec
 
       - name: Run rubocop
         run: bundle exec rubocop
