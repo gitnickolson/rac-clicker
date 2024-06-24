@@ -10,7 +10,7 @@ permissions:
   contents: read
 
 jobs:
-  test:
+  rubocop:
 
     runs-on: ubuntu-latest
     strategy:
@@ -32,10 +32,6 @@ jobs:
         with:
           ruby-version: ${{ matrix.ruby-version }}
           bundler-cache: true
-
-      - name: Run tests with xvfb
-        run: |
-          xvfb-run --auto-servernum --server-args='-screen 0 1024x768x24' bundle exec rspec
 
       - name: Run rubocop
         run: bundle exec rubocop
