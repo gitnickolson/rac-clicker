@@ -20,7 +20,7 @@ module Components
       end
 
       def update_click_text
-        @text&.text = click.count
+        @text&.text = click.count.round(2)
       end
 
       private

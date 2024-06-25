@@ -17,9 +17,9 @@ module Components
 
     def multiplied_amount(amount)
       multipliers.each_value do |multiplier_number|
-        next if number.nil? || !number.is_a?(Integer)
+        next if multiplier_number.nil?
 
-        amount * (1 + multiplier_number)
+        amount *= (1 + multiplier_number)
       end
       amount
     end
