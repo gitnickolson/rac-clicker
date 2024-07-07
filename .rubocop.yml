@@ -9,3 +9,5 @@ Metrics/BlockLength:
   Enabled: false
 Naming/MemoizedInstanceVariableName:
   Enabled: false
+Lint/DuplicateBranch:
+  Enabled: false

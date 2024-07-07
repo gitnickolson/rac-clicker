@@ -11,7 +11,7 @@ module Components
       end
 
       attr_reader :raccoon
-      attr_accessor :click, :click_text
+      attr_accessor :click
 
       def add_listener
         listen_to_mouse_down
