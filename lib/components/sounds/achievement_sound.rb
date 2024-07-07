@@ -4,11 +4,11 @@ require 'components/sounds/sounds'
 
 module Components
   module Sounds
-    class ClickSound < Sounds
+    class AchievementSound < Sounds
       def initialize
         super
-        @sound = Sound.new('./resources/sounds/click.mp3')
-        @sound.volume = 25
+        @sound = Sound.new('./resources/sounds/achievement.mp3')
+        @sound.volume = 35
       end
     end
   end
