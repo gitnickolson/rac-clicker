@@ -4,6 +4,7 @@ require 'entities/raccoon'
 require 'components/click'
 require 'components/displays/text_display'
 require 'components/listeners/mouse_listener'
+require 'components/listeners/keyboard_listener'
 require 'components/sounds/achievement_sound'
 require 'achievements/one_thousand'
 
@@ -12,20 +13,21 @@ class Game
     @click = Components::Click.new
     @raccoon = Entities::Raccoon.new
     @mouse_listener = Components::Listeners::MouseListener.new(click, raccoon)
+    @keyboard_listener = Components::Listeners::KeyboardListener.new(click, raccoon)
     @text_display = Components::Displays::TextDisplay.new(click)
     @achievements = all_achievements
   end
 
   def run
-    add_mouse_listener
+    add_listeners
     add_text_display
     start_refresh_loop
   end
 
   private
 
-  attr_accessor :click, :text_display, :mouse_listener
-  attr_reader :raccoon, :achievements
+  attr_accessor :click, :text_display
+  attr_reader :raccoon, :achievements, :mouse_listener, :keyboard_listener
 
   def start_refresh_loop
     tick = 0
@@ -40,8 +42,9 @@ class Game
     end
   end
 
-  def add_mouse_listener
+  def add_listeners
     mouse_listener.add_listener
+    keyboard_listener.add_listener
   end
 
   def add_text_display
