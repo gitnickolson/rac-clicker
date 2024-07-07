@@ -4,6 +4,7 @@ require 'entities/raccoon'
 require 'components/click'
 require 'components/displays/text_display'
 require 'components/listeners/mouse_listener'
+require 'components/sounds/achievement_sound'
 require 'achievements/one_thousand'
 
 class Game
@@ -56,8 +57,9 @@ class Game
     reached_achievements.each do |achievement|
       next if achievement.multiplier == 0.00
 
-      if click.multipliers[achievement.name] == nil
-        pp 'Achievement reached'
+      if click.multipliers[achievement.name].nil?
+        Components::Sounds::AchievementSound.new.play
+        text_display.show_achievement_text(achievement)
       end
 
       click.multipliers[achievement.name] = achievement.multiplier
